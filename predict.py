@@ -41,7 +41,6 @@ EMPLOYMENT = [
     'self-employed'
 ]
 
-# Membuat class SalaryPredict dengan menggunakan nn.Module
 class SalaryPredict(nn.Module):
     def __init__(self, n_input_featrues):
         super().__init__()
@@ -116,7 +115,7 @@ def show_predict_page():
         
         st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
                                 columns=['Predicted Salary'],
-                                index=['Linear', 'Decission Tree', 'Random Forest', 'Neural Network']))
+                                index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
         st.write(f"Calculate Salary: {round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)}")
         
 data = load_model()
