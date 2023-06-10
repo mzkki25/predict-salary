@@ -23,11 +23,13 @@ def show_explore_page():
     pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
     
 
-    if st.button("Tampilkan data", key="show_data_button"):
+    if st.button("Tampilkan data", key=1):
         st.divider()
         st.write(f"""Total penggajian berdasarkan {pilihan1} dengan Salary""")
         data = df.groupby([pilihan1])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
+    elif st.button("Bersihkan output", key=1):
+        st.write("")
     
     st.divider()
     
@@ -50,11 +52,13 @@ def show_explore_page():
     
     pilihan2 = st.selectbox("Pilih negara untuk menghitung opsi yang dipilih berdasarkan salary", opsi2)
     
-    if st.button("Tampilkan data", key="show_data_button2"):
+    if st.button("Tampilkan data", key=2):
         st.divider()
         st.write(f"""Menampilkan negara {pilihan2} dengan 5 Salary tertinggi""")
         data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=False).head(5)
         # Buatlah ke dalam dataframe
         table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary']})
         st.table(table_data)
+    elif st.button("Bersihkan output", key=2):
+        st.write("")
         
