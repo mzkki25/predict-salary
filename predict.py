@@ -99,7 +99,7 @@ def show_predict_page():
     ok = st.button('Calculate Salary')
     if ok:
         params = np.array([[country, education, employment, experience]])
-        # st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
+        st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
         
         params[:, 0] =  country_encoder.transform(params[:, 0])
         params[:, 1] =  education_encoder.transform(params[:, 1])
@@ -113,9 +113,9 @@ def show_predict_page():
         random_predict = round(random.predict(params)[0], 2)
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
-        # st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
-        #                         columns=['Predicted Salary'],
-        #                         index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
+        st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
+                                columns=['Predicted Salary'],
+                                index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
         st.write(f"Calculate Salary: {round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)}")
         
 data = load_model()
