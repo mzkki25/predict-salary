@@ -3,9 +3,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from sklearn.preprocessing import LabelEncoder
+
 @st.cache
 def load_data():
-    df = pd.read_csv("survey_results_public.csv")
+    df = pd.read_csv("survey_results_public_clean.csv")
     return df
 
 df = load_data()
