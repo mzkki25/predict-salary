@@ -82,7 +82,7 @@ def load_model(pytorch_model=SalaryPredict):
         data = pickle.load(f)
         
     loader = torch.load('model_15k.pt')
-    model = pytorch_model(loader['n_input'])
+    model = pytorch_model(data['n_input'])
     model.load_state_dict(loader['model'])
     data['pytorch_model'] = model
     return data
