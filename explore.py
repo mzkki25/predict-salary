@@ -56,14 +56,20 @@ def show_explore_page():
     ]
     
     pilihan2 = st.selectbox("Pilih negara untuk menghitung opsi yang dipilih berdasarkan salary", opsi2)
-    
-    if st.button("Tampilkan data", key=2):
+
+    col3, col4 = st.columns(2)
+
+    if col3.button("Tampilkan data", key=2):
+        col4.empty()
         st.divider()
         st.write(f"""Menampilkan negara {pilihan2} dengan 5 Salary tertinggi""")
         data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=False).head(5)
-        # Buatlah ke dalam dataframe
+        # Buat DataFrame dari data yang dipilih
         table_data = pd.DataFrame({'Salary': data['Salary']})
         st.table(table_data)
-    if st.button("Bersihkan output", key=2.5):
-        st.empty()
+
+    if col4.button("Bersihkan output", key=2.5):
+        col3.empty()
+        col4.empty()
+
         
