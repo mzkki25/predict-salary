@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 @st.cache
 def load_data():
-    df = pd.read_csv("survey_results_public_clean.csv")
+    df = pd.read_csv("survey_results_public_preprocessing.csv")
     return df
 
 df = load_data()
