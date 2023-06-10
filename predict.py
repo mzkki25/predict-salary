@@ -41,7 +41,6 @@ EMPLOYMENT = [
     'self-employed'
 ]
 
-# Membuat class SalaryPredict dengan menggunakan nn.Module
 class SalaryPredict(nn.Module):
     def __init__(self, n_input_featrues):
         super().__init__()
