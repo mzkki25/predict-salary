@@ -12,8 +12,8 @@ def show_homepage():
     
     # Membuat tabel pada streamlit
     value = {
-        'Nama': ['Akmal Muzakki Bakir', 'Namira Salsabilla', 'Haura Adzkia Delfina'],
-        'NIM' : ['1305210087', '1305210091', '1305213006']
+        '**Nama**': ['Akmal Muzakki Bakir', 'Namira Salsabilla', 'Haura Adzkia Delfina'],
+        '**NIM**' : ['1305210087', '1305210091', '1305213006']
     }
     
     st.table(value)
