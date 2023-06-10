@@ -87,41 +87,43 @@ def load_model(pytorch_model=SalaryPredict):
     data['pytorch_model'] = model
     return data
 
-def show_predict_page(data):
+def show_predict_page():
     st.title('Salary Prediction')
-    st.write('Please fill in the form below to predict your salary')
-    st.write('---')
-    with st.form(key='predict_form'):
-        country = st.selectbox('Country', COUNTRIES)
-        education = st.selectbox('Education', EDUCATION)
-        employment = st.selectbox('Employment', EMPLOYMENT)
-        experience = st.slider('Experience (Years)', 0, 50, 1)
-        submit_button = st.form_submit_button(label='Predict')
+    st.write("""### We need some information to predict the salary""")
+    st.divider()
+    
+    country = st.selectbox('Country', COUNTRIES)
+    education = st.selectbox('Education', EDUCATION)
+    employment = st.selectbox('Employment', EMPLOYMENT)
+    experience = st.slider('Experience (Years)', 0, 50, 1)
+    
+    ok = st.button('Calculate Salary')
+    if ok:
+        params = np.array([[country, education, employment, experience]])
+        st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
         
-    if submit_button:
-        # Preprocess data
-        country = data['country_encoder'].transform([country])[0]
-        education = data['education_encoder'].transform([education])[0]
-        employment = data['employment_encoder'].transform([employment])[0]
-        experience = np.array([experience])
+        params[:, 0] =  country_encoder.transform(params[:, 0])
+        params[:, 1] =  education_encoder.transform(params[:, 1])
+        params[:, 2] =  employment_encoder.transform(params[:, 2])
+        params = params.astype(np.float32)
         
-        # Predict
-        x = np.array([country, education, employment, experience])
-        x = torch.from_numpy(x).float()
-        y_pred = data['pytorch_model'](x)
-        y_pred = data['scaler'].inverse_transform(y_pred.detach().numpy())
-        y_pred = y_pred[0][0]
+        st.divider()
+        st.subheader('Predicted Salary using various models')
+        linear_predict = round(linear.predict(params)[0], 2)
+        decission_predict = round(decission.predict(params)[0], 2)
+        random_predict = round(random.predict(params)[0], 2)
+        neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
-        # Show prediction
-        st.write('---')
-        st.write(f'Your estimated salary is ${y_pred:.2f}')
+        st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
+                                columns=['Predicted Salary'],
+                                index=['Linear', 'Decission Tree', 'Random Forest', 'Neural Network']))
+        st.write(f"Calculate Salary: {np.mean([linear_predict, decission_predict, random_predict, neural_predict])})")
         
-if __name__ == '__main__':
-    data = load_model()
-    linear = data['Linear']
-    decission = data['DecissionTree']
-    random = data['RandomForest']
-    neural = data['pytorch_model']
-    country_encoder = data['country_encoder']
-    education_encoder = data['education_encoder']
-    employment_encoder = data['employment_encoder']
+data = load_model()
+linear = data['Linear']
+decission = data['DecissionTree']
+random = data['RandomForest']
+neural = data['pytorch_model']
+country_encoder = data['country_encoder']
+education_encoder = data['education_encoder']
+employment_encoder = data['employment_encoder']
