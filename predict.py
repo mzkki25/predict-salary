@@ -88,7 +88,7 @@ def load_model(pytorch_model=SalaryPredict):
 
 def show_predict_page():
     st.title('Prediksi penggajian')
-    st.write("""###Kami membutuhkan beberapa informasi untuk memprediksi penggajian Anda!""")
+    st.write("""###Kami membutuhkan beberapa informasi untuk memprediksi gaji Anda!""")
     st.divider()
     
     country = st.selectbox('Country', COUNTRIES)
@@ -96,7 +96,7 @@ def show_predict_page():
     employment = st.selectbox('Employment', EMPLOYMENT)
     experience = st.slider('Experience (Years)', 0, 50, 1)
     
-    ok = st.button('Hitung Penggajian')
+    ok = st.button('Hitung gaji Anda')
     if ok:
         params = np.array([[country, education, employment, experience]])
         st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
@@ -116,7 +116,7 @@ def show_predict_page():
         st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
                                 columns=['Predicted Salary'],
                                 index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
-        st.write(f"Calculate Salary: {round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)}")
+        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)} per-tahun")
         
 data = load_model()
 linear = data['Linear']
