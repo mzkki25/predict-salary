@@ -24,7 +24,7 @@ def show_explore_page():
     
     # Button untuk menampilkan data
     if st.button("Tampilkan data"):
-        st.write(f"""###Total penggajian berdasarkan {pilihan}""")
+        st.write(f"""Total penggajian berdasarkan {pilihan} dengan Salary""")
         data = df.groupby([pilihan])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
     
