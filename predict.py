@@ -98,7 +98,7 @@ def show_predict_page():
     
     ok = st.button('Calculate Salary')
     if ok:
-        # params = np.array([[country, education, employment, experience]])
+        params = np.array([[country, education, employment, experience]])
         # st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
         
         params[:, 0] =  country_encoder.transform(params[:, 0])
