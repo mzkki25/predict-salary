@@ -118,12 +118,11 @@ def show_predict_page():
                                 index=['Linear', 'Decission Tree', 'Random Forest', 'Neural Network']))
         st.write(f"Calculate Salary: {np.mean([linear_predict, decission_predict, random_predict, neural_predict])}")
 
-if __name__ == '__main__':
-    data = load_model()
-    linear = data['Linear']
-    decission = data['DecissionTree']
-    random = data['RandomForest']
-    neural = data['pytorch_model']
-    country_encoder = data['country_encoder']
-    education_encoder = data['ed_encoder']
-    employment_encoder = data['employment_encoder']
+data = load_model()
+linear = data['Linear']
+decission = data['DecissionTree']
+random = data['RandomForest']
+neural = data['pytorch_model']
+country_encoder = data['country_encoder']
+education_encoder = data['ed_encoder']
+employment_encoder = data['employment_encoder']
