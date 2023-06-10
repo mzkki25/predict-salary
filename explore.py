@@ -57,7 +57,7 @@ def show_explore_page():
         st.write(f"""Menampilkan negara {pilihan2} dengan 5 Salary tertinggi""")
         data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=False).head(5)
         # Buatlah ke dalam dataframe
-        table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary']})
+        table_data = pd.DataFrame({'Salary': data['Salary']})
         st.table(table_data)
     if st.button("Bersihkan output", key=2.5):
         st.empty()
