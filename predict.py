@@ -5,6 +5,42 @@ import numpy as np
 import torch
 from torch import nn
 
+COUNTRIES = [
+    'Australia', 
+    'Brazil', 
+    'Canada',
+    'France',
+    'Germany',
+    'India',
+    'Italy',
+    'Netherlands',
+    'Other',
+    'Poland',
+    'Spain',
+    'Sweden',
+    'United Kingdom of Great Britain and Northern Ireland',
+    'United States of America'
+    ]
+
+EDUCATION = [
+    'Associate',
+    'Bachelor',
+    'Doctoral',
+    'Master',
+    'Other degree',
+    'Primary school',
+    'Professional',
+    'Secondary school'
+    ]
+
+EMPLOYMENT = [
+    'Independent contractor',
+    'freelancer',
+    'full-time',
+    'part-time',
+    'self-employed'
+]
+
 class SalaryPredict(nn.Module):
     def __init__(self, n_input_featrues):
         super().__init__()
@@ -83,42 +119,6 @@ def show_predict_page():
         st.write(f"Calculate Salary: {np.mean([linear_predict, decission_predict, random_predict, neural_predict])}")
 
 if __name__ == '__main__':
-    COUNTRIES = [
-    'Australia', 
-    'Brazil', 
-    'Canada',
-    'France',
-    'Germany',
-    'India',
-    'Italy',
-    'Netherlands',
-    'Other',
-    'Poland',
-    'Spain',
-    'Sweden',
-    'United Kingdom of Great Britain and Northern Ireland',
-    'United States of America'
-    ]
-
-    EDUCATION = [
-        'Associate',
-        'Bachelor',
-        'Doctoral',
-        'Master',
-        'Other degree',
-        'Primary school',
-        'Professional',
-        'Secondary school'
-        ]
-
-    EMPLOYMENT = [
-        'Independent contractor',
-        'freelancer',
-        'full-time',
-        'part-time',
-        'self-employed'
-    ]
-
     data = load_model()
     linear = data['Linear']
     decission = data['DecissionTree']
@@ -127,5 +127,3 @@ if __name__ == '__main__':
     country_encoder = data['country_encoder']
     education_encoder = data['ed_encoder']
     employment_encoder = data['employment_encoder']
-    
-    show_predict_page()
