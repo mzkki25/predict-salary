@@ -117,7 +117,7 @@ def show_predict_page():
         st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
                                 columns=['Predicted Salary'],
                                 index=['Linear', 'Decission Tree', 'Random Forest', 'Neural Network']))
-        st.write(f"Calculate Salary: {np.mean([linear_predict, decission_predict, random_predict, neural_predict])})")
+        st.write(f"Calculate Salary: {np.mean([linear_predict, decission_predict, random_predict, neural_predict])}")
         
 data = load_model()
 linear = data['Linear']
