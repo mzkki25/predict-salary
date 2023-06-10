@@ -28,7 +28,7 @@ def show_explore_page():
         st.write(f"""Total penggajian berdasarkan {pilihan1} dengan Salary""")
         data = df.groupby([pilihan1])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
-    elif st.button("Bersihkan output", key=1):
+    elif st.button("Bersihkan output", key=1.5):
         st.write("")
     
     st.divider()
@@ -59,6 +59,6 @@ def show_explore_page():
         # Buatlah ke dalam dataframe
         table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary']})
         st.table(table_data)
-    elif st.button("Bersihkan output", key=2):
+    elif st.button("Bersihkan output", key=2.5):
         st.write("")
         
