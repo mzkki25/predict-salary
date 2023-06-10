@@ -127,3 +127,5 @@ if __name__ == '__main__':
     country_encoder = data['country_encoder']
     education_encoder = data['ed_encoder']
     employment_encoder = data['employment_encoder']
+    
+    show_predict_page()
