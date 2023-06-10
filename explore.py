@@ -13,11 +13,18 @@ df = load_data()
 def show_explore_page():
     st.title("Eksplorasi penggajian")
     
-    st.write("""###Total penggajian berdasarkan negara""")
-    data = df.groupby(['Country'])['Salary'].sum().sort_values(ascending=True)
-    st.bar_chart(data)
+    opsi = [
+        'Country',
+        'YearsCodePro',
+        'EdLevel',
+        'Employment',
+    ]
     
-    st.write("""###Total penggajian berdasarkan pengalaman""")
-    data = df.groupby(['YearsCodePro'])['Salary'].sum().sort_values(ascending=True)
-    st.bar_chart(data)
+    pilihan = st.selectbox("Pilih atribut", opsi)
+    
+    # Button untuk menampilkan data
+    if st.button("Tampilkan data"):
+        st.write(f"""###Total penggajian berdasarkan {pilihan}""")
+        data = df.groupby([pilihan])['Salary'].sum().sort_values(ascending=True)
+        st.bar_chart(data)
     
