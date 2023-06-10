@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 @st.cache
 def load_data():
-    df = pd.read_csv("survey_results_public_clean.csv")
+    df = pd.read_csv("survey_results_public.csv")
     return df
 
 df = load_data()
