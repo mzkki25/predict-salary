@@ -22,7 +22,7 @@ def show_explore_page():
     
     pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
 
-    col1, col2 = st.beta_columns(2)
+    col1, col2 = st.columns(2)
 
     if col1.button("Tampilkan data", key=1):
         col2.empty()
@@ -34,6 +34,7 @@ def show_explore_page():
     if col2.button("Bersihkan output", key=1.5):
         col1.empty()
         col2.empty()
+
     
     st.divider()
     
