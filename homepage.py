@@ -1,10 +1,10 @@
 import streamlit as st
 
 def show_homepage():
-    st.title("Salary Prediction App")
+    st.title("Aplikasi prediksi penggajian")
     st.write(
         """
-        This app predicts the **Salary** of an employee!
+        Aplikasi ini digunakan untuk memprediksi gaji anda ketika melamar kerja di perusahaan **KELOMPOK 3**!
         """
     )
     
