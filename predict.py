@@ -88,18 +88,18 @@ def load_model(pytorch_model=SalaryPredict):
 
 def show_predict_page():
     st.title('Prediksi penggajian')
-    st.write("""###Kami membutuhkan beberapa informasi untuk memprediksi gaji Anda!""")
+    st.write("""### Kami membutuhkan beberapa informasi untuk memprediksi gaji Anda!""")
     st.divider()
     
-    country = st.selectbox('Country', COUNTRIES)
-    education = st.selectbox('Education', EDUCATION)
-    employment = st.selectbox('Employment', EMPLOYMENT)
-    experience = st.slider('Experience (Years)', 0, 50, 1)
+    country = st.selectbox('Negara', COUNTRIES)
+    education = st.selectbox('Pendidikan', EDUCATION)
+    employment = st.selectbox('Status pekerjaan', EMPLOYMENT)
+    experience = st.slider('Pengalaman (dalam tahun)', 0, 50, 1)
     
     ok = st.button('Hitung gaji Anda')
     if ok:
         params = np.array([[country, education, employment, experience]])
-        st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
+        st.table(pd.DataFrame(params, columns=['Negara', 'Pendidikan', 'Status pekerjaan', 'Pengalaman (dalam tahun)']))
         
         params[:, 0] =  country_encoder.transform(params[:, 0])
         params[:, 1] =  education_encoder.transform(params[:, 1])
