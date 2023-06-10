@@ -20,9 +20,10 @@ def show_explore_page():
         'Employment',
     ]
     
-    pilihan = st.selectbox("Pilih atribut", opsi)
+    pilihan = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi)
     
-    # Button untuk menampilkan data
+    st.divider()
+
     if st.button("Tampilkan data"):
         st.write(f"""Total penggajian berdasarkan {pilihan} dengan Salary""")
         data = df.groupby([pilihan])['Salary'].sum().sort_values(ascending=True)
