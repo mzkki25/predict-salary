@@ -113,9 +113,9 @@ def show_predict_page():
         random_predict = round(random.predict(params)[0], 2)
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
-        st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
-                                columns=['Predicted Salary'],
-                                index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
+        # st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
+        #                         columns=['Predicted Salary'],
+        #                         index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
         st.write(f"Calculate Salary: {round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)}")
         
 data = load_model()
