@@ -1,3 +1,2 @@
 scikit-learn
 matplotlib
-torch==1.9.0
