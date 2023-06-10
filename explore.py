@@ -52,12 +52,8 @@ def show_explore_page():
     
     if st.button("Tampilkan data", key="show_data_button2"):
         st.divider()
-        st.write(f"""Total penggajian berdasarkan {pilihan2} dengan Salary""")
-        # Tampilkan scatterplot dengan negara yang dipilih sebagai sumbu x dan salary sebagai sumbu y
+        st.write(f"""Scatterplot total penggajian berdasarkan negara {pilihan2} dengan Salary""")
         data = df[df['Country'] == pilihan2]
-        plt.scatter(data['Country'], data['Salary'])
-        plt.xlabel('Country')
-        plt.ylabel('Salary')
-        plt.title('Total penggajian berdasarkan negara')
-        st.pyplot()
+        # Buatlah ke dalam dataframe
+        st.table(pd.DataFrame(data, index=['Country'], columns=['Salary']))
         
