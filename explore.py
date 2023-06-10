@@ -18,6 +18,6 @@ def show_explore_page():
     st.bar_chart(data)
     
     st.write("""### Mean salary based on experience""")
-    data = df.groupby(['YearsCodePro'])['Salary'].mean().sort_values(ascending=False)
+    data = df.groupby(['YearsCodePro'])['Salary'].sum().sort_values(ascending=False)
     st.bar_chart(data)
     
