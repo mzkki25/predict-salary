@@ -1,6 +1,6 @@
 import streamlit as st
 
-def show_home_page():
+def show_homepage():
     st.title("Salary Prediction App")
     st.write(
         """
