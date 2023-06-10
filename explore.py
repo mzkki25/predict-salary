@@ -23,7 +23,7 @@ def show_explore_page():
     pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
     
 
-    if st.button("Tampilkan data"):
+    if st.button("Tampilkan data", key="show_data_button"):
         st.divider()
         st.write(f"""Total penggajian berdasarkan {pilihan1} dengan Salary""")
         data = df.groupby([pilihan1])['Salary'].sum().sort_values(ascending=True)
@@ -50,7 +50,7 @@ def show_explore_page():
     
     pilihan2 = st.selectbox("Pilih negara untuk menghitung opsi yang dipilih berdasarkan salary", opsi2)
     
-    if st.button("Tampilkan data"):
+    if st.button("Tampilkan data", key="show_data_button2"):
         st.divider()
         st.write(f"""Total penggajian berdasarkan {pilihan2} dengan Salary""")
         # Tampilkan scatterplot dengan negara yang dipilih sebagai sumbu x dan salary sebagai sumbu y
