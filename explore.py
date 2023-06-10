@@ -55,6 +55,6 @@ def show_explore_page():
         st.write(f"""Scatterplot total penggajian berdasarkan negara {pilihan2} dengan Salary""")
         data = df[df['Country'] == pilihan2]
         # Buatlah ke dalam dataframe
-        table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary']})
+        table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary'].sort_values(ascending=True)})
         st.table(table_data)
         
