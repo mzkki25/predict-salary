@@ -34,11 +34,9 @@ EDUCATION = [
     ]
 
 EMPLOYMENT = [
-    'Independent contractor',
     'freelancer',
     'full-time',
-    'part-time',
-    'self-employed'
+    'part-time'
 ]
 
 class SalaryPredict(nn.Module):
@@ -80,7 +78,7 @@ def load_model(pytorch_model=SalaryPredict):
     with open('model.pkl', 'rb') as f:
         data = pickle.load(f)
         
-    loader = torch.load('model_15k.pt')
+    loader = torch.load('model.pt')
     model = pytorch_model(data['n_input'])
     model.load_state_dict(loader['Model'])
     data['pytorch_model'] = model

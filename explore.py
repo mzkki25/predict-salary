@@ -64,7 +64,6 @@ def show_explore_page():
         st.divider()
         st.write(f"""Menampilkan negara {pilihan2} dengan 5 Salary tertinggi""")
         data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=False).head(5)
-        # Buat DataFrame dari data yang dipilih
         table_data = pd.DataFrame({'Salary': data['Salary']})
         st.table(table_data)
 
