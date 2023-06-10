@@ -83,7 +83,7 @@ def load_model(pytorch_model=SalaryPredict):
         
     loader = torch.load('model_15k.pt')
     model = pytorch_model(data['n_input'])
-    model.load_state_dict(loader['model'])
+    model.load_state_dict(loader['Model'])
     data['pytorch_model'] = model
     return data
 
