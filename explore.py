@@ -22,9 +22,9 @@ def show_explore_page():
     
     pilihan = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi)
     
-    st.divider()
 
     if st.button("Tampilkan data"):
+        st.divider()
         st.write(f"""Total penggajian berdasarkan {pilihan} dengan Salary""")
         data = df.groupby([pilihan])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
