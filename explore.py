@@ -53,7 +53,7 @@ def show_explore_page():
     if st.button("Tampilkan data", key="show_data_button2"):
         st.divider()
         st.write(f"""Scatterplot total penggajian berdasarkan negara {pilihan2} dengan Salary""")
-        data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=True)
+        data = df[df['Country'] == pilihan2].sort_values(by='Salary', ascending=False)
         # Buatlah ke dalam dataframe
         table_data = pd.DataFrame({'Country': data['Country'], 'Salary': data['Salary']})
         st.table(table_data)
