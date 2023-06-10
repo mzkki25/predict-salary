@@ -4,7 +4,7 @@ from predict import show_predict_page
 from explore import show_explore_page
 from homepage import show_homepage
 
-page = st.sidebar.selectbox("Choose a page", ["Homepage", "Salary Prediction", "Data Exploration"])
+page = st.sidebar.selectbox("Pilih laman", ["Homepage", "Salary Prediction", "Data Exploration"])
 
 if page == "Homepage":
     show_homepage()

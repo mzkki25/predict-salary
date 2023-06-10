@@ -87,8 +87,8 @@ def load_model(pytorch_model=SalaryPredict):
     return data
 
 def show_predict_page():
-    st.title('Salary Prediction')
-    st.write("""### We need some information to predict the salary""")
+    st.title('Prediksi penggajian')
+    st.write("""###Kami membutuhkan beberapa informasi untuk memprediksi penggajian Anda!""")
     st.divider()
     
     country = st.selectbox('Country', COUNTRIES)
@@ -96,7 +96,7 @@ def show_predict_page():
     employment = st.selectbox('Employment', EMPLOYMENT)
     experience = st.slider('Experience (Years)', 0, 50, 1)
     
-    ok = st.button('Calculate Salary')
+    ok = st.button('Hitung Penggajian')
     if ok:
         params = np.array([[country, education, employment, experience]])
         st.table(pd.DataFrame(params, columns=['Country', 'Education', 'Employment', 'Experience']))
