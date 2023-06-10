@@ -16,10 +16,10 @@ def show_explore_page():
     st.title("Salary Explorer")
     
     st.write("""### Sum of salary based on country""")
-    data = df.groupby(['Country'])['Salary'].sum().sort_values(ascending=False)
+    data = df.groupby(['Country'])['Salary'].sum().sort_values(ascending=True)
     st.bar_chart(data)
     
     st.write("""### Mean salary based on experience""")
-    data = df.groupby(['YearsCodePro'])['Salary'].sum().sort_values(ascending=False)
+    data = df.groupby(['YearsCodePro'])['Salary'].sum().sort_values(ascending=True)
     st.bar_chart(data)
     
