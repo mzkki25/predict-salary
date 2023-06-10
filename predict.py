@@ -95,7 +95,7 @@ def show_predict_page(data):
         country = st.selectbox('Country', COUNTRIES)
         education = st.selectbox('Education', EDUCATION)
         employment = st.selectbox('Employment', EMPLOYMENT)
-        experience = st.slider('Experience (Years)', 0, 50, 0)
+        experience = st.slider('Experience (Years)', 0, 50, 1)
         submit_button = st.form_submit_button(label='Predict')
         
     if submit_button:
