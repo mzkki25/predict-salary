@@ -75,35 +75,33 @@ def show_explore_page():
         col4.empty()
 
         
-    # Bagian 3
+    # # Bagian 3
     
-    # Ambil data country dengan salary untuk di eksprot ke pydeck
+    # # Ambil data country dengan salary untuk di eksprot ke pydeck
     
-    # chart_data = pd.DataFrame(
-    #     df[['Country', 'Salary']],
-    #     columns=['Country', 'Salary']
-    # )
+    # # chart_data = pd.DataFrame(
+    # #     df[['Country', 'Salary']],
+    # #     columns=['Country', 'Salary']
+    # # )
 
-    # st.pydeck_chart(pdk.Deck(
-    #     map_style=None,
-    #     initial_view_state=pdk.ViewState(
-    #         latitude=0,
-    #         longitude=0,
-    #         zoom=11,
-    #         pitch=50,
-    #     ),
-    #     layers=[
-    #         pdk.Layer(
-    #             'ScatterplotLayer',
-    #             data=chart_data,
-    #             get_position='[Salary, Country]',
-    #             get_color='[200, 30, 0, 160]',
-    #             get_radius=200,
-    #         ),
-    #     ],
-    # ))
-    
-    data = df[['Country', 'Salary']]
+    # # st.pydeck_chart(pdk.Deck(
+    # #     map_style=None,
+    # #     initial_view_state=pdk.ViewState(
+    # #         latitude=0,
+    # #         longitude=0,
+    # #         zoom=11,
+    # #         pitch=50,
+    # #     ),
+    # #     layers=[
+    # #         pdk.Layer(
+    # #             'ScatterplotLayer',
+    # #             data=chart_data,
+    # #             get_position='[Salary, Country]',
+    # #             get_color='[200, 30, 0, 160]',
+    # #             get_radius=200,
+    # #         ),
+    # #     ],
+    # # ))
     
     # country = pd.DataFrame({
     # 'lat': [37.76, 37.77, 37.78, 37.79, 37.80],
@@ -116,35 +114,35 @@ def show_explore_page():
     #     'lon': np.random.randn(1000) / 50 - 122.4
     # })
 
-    # Menggabungkan DataFrame Country dan Salary
+    # # Menggabungkan DataFrame Country dan Salary
     # chart_data = pd.concat([country, salary])
 
-    # Menampilkan PyDeck Chart menggunakan Streamlit
-    st.pydeck_chart(pdk.Deck(
-        map_style=None,
-        initial_view_state=pdk.ViewState(
-            latitude=37.76,
-            longitude=-122.4,
-            zoom=11,
-            pitch=50,
-        ),
-        layers=[
-            pdk.Layer(
-                'HexagonLayer',
-                data=data,
-                get_position='[lon, lat]',
-                radius=200,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                pickable=True,
-                extruded=True,
-            ),
-            pdk.Layer(
-                'ScatterplotLayer',
-                data=data,
-                get_position='[lon, lat]',
-                get_color='[200, 30, 0, 160]',
-                get_radius=200,
-            ),
-        ],
-    ))
+    # # Menampilkan PyDeck Chart menggunakan Streamlit
+    # st.pydeck_chart(pdk.Deck(
+    #     map_style=None,
+    #     initial_view_state=pdk.ViewState(
+    #         latitude=37.76,
+    #         longitude=-122.4,
+    #         zoom=11,
+    #         pitch=50,
+    #     ),
+    #     layers=[
+    #         pdk.Layer(
+    #             'HexagonLayer',
+    #             data=chart_data,
+    #             get_position='[lon, lat]',
+    #             radius=200,
+    #             elevation_scale=4,
+    #             elevation_range=[0, 1000],
+    #             pickable=True,
+    #             extruded=True,
+    #         ),
+    #         pdk.Layer(
+    #             'ScatterplotLayer',
+    #             data=chart_data,
+    #             get_position='[lon, lat]',
+    #             get_color='[200, 30, 0, 160]',
+    #             get_radius=200,
+    #         ),
+    #     ],
+    # ))
