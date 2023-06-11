@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import pydeck as pdk
 
 @st.cache
 def load_data():
@@ -76,10 +77,40 @@ def show_explore_page():
         
     # Bagian 3
     
-    st.divider()
+    # Ambil data country dengan salary untuk di eksprot ke pydeck
+    
+    chart_data = pd.DataFrame(
+        df[['Country', 'Salary']],
+        columns=['Country', 'Salary']
+    )
+    
+    # Ambil data country dengan salary untuk di eksprot ke pydeck
 
-    button_piechart = st.button("Tampilkan pie chart untuk menampilkan persentase penggajian berdasarkan negara")
-    if button_piechart:
-        st.write("Menampilkan pie chart untuk menampilkan persentase penggajian berdasarkan negara")
-        data = df.groupby(['Country'])['Salary'].sum().sort_values(ascending=False)
-        st.pie_chart(data)
+    st.pydeck_chart(pdk.Deck(
+        map_style=None,
+        initial_view_state=pdk.ViewState(
+            latitude=0,
+            longitude=0,
+            zoom=0,
+            pitch=0,
+        ),
+        layers=[
+            # pdk.Layer(
+            #     'HexagonLayer',
+            #     data=chart_data,
+            #     get_position='[0, 0]',
+            #     radius=200,
+            #     elevation_scale=4,
+            #     elevation_range=[0, 1000],
+            #     pickable=True,
+            #     extruded=True,
+            # ),
+            pdk.Layer(
+                'ScatterplotLayer',
+                data=chart_data,
+                get_position='[0, 0]',
+                get_color='[200, 30, 0, 160]',
+                get_radius=200,
+            ),
+        ],
+    ))
