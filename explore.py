@@ -95,7 +95,7 @@ def show_explore_page():
         'Secondary school'
     ]
     
-    pilihan3 = st.selectbox("Pilih Tingkat Edukasi untuk perhitungan berdasarkan Salary", opsi3)
+    pilihan3 = st.selectbox("Pilih Tingkat edukasi untuk perhitungan berdasarkan Salary", opsi3)
 
     col5, col6 = st.columns(2)
 
@@ -128,7 +128,7 @@ def show_explore_page():
         'Senior Product Manager'
     ]
     
-    pilihan4 = st.selectbox("Pilih Pekerjaan untuk perhitungan berdasarkan Salary", opsi4)
+    pilihan4 = st.selectbox("Pilih pekerjaan untuk perhitungan berdasarkan Salary", opsi4)
     
     col7, col8 = st.columns(2)
     
