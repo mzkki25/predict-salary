@@ -103,19 +103,21 @@ def show_explore_page():
     #     ],
     # ))
     
-    country = pd.DataFrame({
-    'lat': [37.76, 37.77, 37.78, 37.79, 37.80],
-    'lon': [-122.4, -122.5, -122.6, -122.7, -122.8]
-    })
+    data = df[['Country', 'Salary']]
+    
+    # country = pd.DataFrame({
+    # 'lat': [37.76, 37.77, 37.78, 37.79, 37.80],
+    # 'lon': [-122.4, -122.5, -122.6, -122.7, -122.8]
+    # })
 
-    # Contoh DataFrame Salary
-    salary = pd.DataFrame({
-        'lat': np.random.randn(1000) / 50 + 37.76,
-        'lon': np.random.randn(1000) / 50 - 122.4
-    })
+    # # Contoh DataFrame Salary
+    # salary = pd.DataFrame({
+    #     'lat': np.random.randn(1000) / 50 + 37.76,
+    #     'lon': np.random.randn(1000) / 50 - 122.4
+    # })
 
     # Menggabungkan DataFrame Country dan Salary
-    chart_data = pd.concat([country, salary])
+    # chart_data = pd.concat([country, salary])
 
     # Menampilkan PyDeck Chart menggunakan Streamlit
     st.pydeck_chart(pdk.Deck(
@@ -129,7 +131,7 @@ def show_explore_page():
         layers=[
             pdk.Layer(
                 'HexagonLayer',
-                data=chart_data,
+                data=data,
                 get_position='[lon, lat]',
                 radius=200,
                 elevation_scale=4,
@@ -139,7 +141,7 @@ def show_explore_page():
             ),
             pdk.Layer(
                 'ScatterplotLayer',
-                data=chart_data,
+                data=data,
                 get_position='[lon, lat]',
                 get_color='[200, 30, 0, 160]',
                 get_radius=200,
