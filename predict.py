@@ -6,8 +6,8 @@ import torch
 from torch import nn
 
 COUNTRIES = [
-    'Australia', 
-    'Brazil', 
+    'Australia',
+    'Brazil',
     'Canada',
     'France',
     'Germany',
@@ -17,7 +17,6 @@ COUNTRIES = [
     'Other',
     'Poland',
     'Spain',
-    'Sweden',
     'United Kingdom of Great Britain and Northern Ireland',
     'United States of America'
     ]
@@ -37,6 +36,27 @@ EMPLOYMENT = [
     'freelancer',
     'full-time',
     'part-time'
+]
+
+JOB = [
+    'Junior Business Analyst',
+    'Junior Business Development Associate',
+    'Junior Financial Analyst',
+    'Junior Marketing Coordinator',
+    'Junior Marketing Manager',
+    'Junior Marketing Specialist',
+    'Junior Operations Analyst',
+    'Junior Sales Representative',
+    'Other',
+    'Senior Business Analyst',
+    'Senior Financial Analyst',
+    'Senior Operations Manager',
+    'Senior Product Manager'
+]
+
+GENDER = [
+    'Female',
+    'Male'
 ]
 
 class SalaryPredict(nn.Module):
@@ -92,35 +112,42 @@ def show_predict_page():
     country = st.selectbox('Negara', COUNTRIES)
     education = st.selectbox('Pendidikan', EDUCATION)
     employment = st.selectbox('Status pekerjaan', EMPLOYMENT)
-    experience = st.slider('Pengalaman (dalam tahun)', 0, 50, 1)
+    job = st.selectbox('Pekerjaan', JOB)
+    gender = st.selectbox("Jenis kelamin", GENDER)
+    experience = st.slider('Pengalaman (dalam tahun)', 0, 25, 1)
     
     ok = st.button('Hitung gaji Anda')
     if ok:
-        params = np.array([[country, education, employment, experience]])
-        st.table(pd.DataFrame(params, columns=['Negara', 'Pendidikan', 'Status pekerjaan', 'Pengalaman (dalam tahun)']))
+        params = np.array([[country, education, employment, job, gender, experience]])
+        st.table(pd.DataFrame(params, columns=['Negara', 'Pendidikan', 'Status pekerjaan', 'Pekerjaan', 'Jenis Kelamin', 'Pengalaman (dalam tahun)']))
         
         params[:, 0] =  country_encoder.transform(params[:, 0])
         params[:, 1] =  education_encoder.transform(params[:, 1])
         params[:, 2] =  employment_encoder.transform(params[:, 2])
+        params[:, 3] =  job_encoder.transform(params[:, 3])
+        params[:, 4] =  gender_encoder.transform(params[:, 4])
         params = params.astype(np.float32)
         
         st.divider()
         st.subheader('Prediksi penggajian berdasarkan berbagai model')
-        linear_predict = -1 * round(linear.predict(params)[0], 2)
+        
+        linear_predict = round(linear.predict(params)[0], 2)
         decission_predict = round(decission.predict(params)[0], 2)
-        random_predict = round(random.predict(params)[0], 2)
+        # random_predict = round(random.predict(params)[0], 2)
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
-        st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
+        st.table(pd.DataFrame([linear_predict, decission_predict, neural_predict], 
                                 columns=['Prediksi Penggajian'],
-                                index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
-        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)} per-tahun")
+                                index=['Linear Regression', 'Decission Tree', 'Neural Network']))
+        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, neural_predict]), 2)} per-tahun")
         
 data = load_model()
 linear = data['LinearRegression']
 decission = data['DecissionTree']
-random = data['RandomForest']
+# random = data['RandomForest']
 neural = data['pytorch_model']
 country_encoder = data['country_encoder']
 education_encoder = data['ed_encoder']
 employment_encoder = data['employment_encoder']
+job_encoder = data['job_encoder']
+gender_encoder = data['gender_encoder']
