@@ -95,7 +95,7 @@ def show_explore_page():
         'Secondary school'
     ]
     
-    pilihan3 = st.selectbox("Pilih Tingkat edukasi untuk perhitungan berdasarkan Salary", opsi3)
+    pilihan3 = st.selectbox("Pilih tingkat edukasi untuk perhitungan berdasarkan Salary", opsi3)
 
     col5, col6 = st.columns(2)
 
