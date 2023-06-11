@@ -75,18 +75,4 @@ def show_explore_page():
 
         
     # Bagian 3
-    # Menampilkan Heatmap
     
-    col5, col6 = st.columns(2)
-    
-    if col5.button("Tampilkan Korelasi", key=5):
-        col6.empty()
-        st.divider()
-        st.write("Menampilkan Heatmap")
-        df_col = df.set_index('Salary')
-        st.write(df_col)
-        plt.matshow(df_col.corr())
-    
-    if col6.button("Bersihkan output", key=6):
-        col5.empty()
-        col6.empty()
