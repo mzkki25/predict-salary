@@ -13,13 +13,14 @@ df = load_data()
 
 def show_explore_page():
     
+    st.title("Eksplorasi penggajian")
+    
     # Menampilkan data
     st.table(df.head(20))
     
     st.divider()
     st.divider()
     
-    st.title("Eksplorasi penggajian")
     
     # Bagian 1
     opsi1 = [
