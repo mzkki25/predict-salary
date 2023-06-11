@@ -13,6 +13,7 @@ df = load_data()
 def show_explore_page():
     st.title("Eksplorasi penggajian")
     
+    # Bagian 1
     opsi1 = [
         'Country',
         'EdLevel',
@@ -32,13 +33,14 @@ def show_explore_page():
         data = df.groupby([pilihan1])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
 
-    if col2.button("Bersihkan output", key=1.5):
+    if col2.button("Bersihkan output", key=2):
         col1.empty()
         col2.empty()
 
     
     st.divider()
     
+    # Bagian 2
     opsi2 = [
         'Australia',
         'Brazil',
@@ -59,7 +61,7 @@ def show_explore_page():
 
     col3, col4 = st.columns(2)
 
-    if col3.button("Tampilkan data", key=2):
+    if col3.button("Tampilkan data", key=3):
         col4.empty()
         st.divider()
         st.write(f"""Menampilkan negara {pilihan2} dengan 5 Salary tertinggi""")
@@ -67,8 +69,24 @@ def show_explore_page():
         table_data = pd.DataFrame({'Salary': data['Salary']})
         st.table(table_data)
 
-    if col4.button("Bersihkan output", key=2.5):
+    if col4.button("Bersihkan output", key=4):
         col3.empty()
         col4.empty()
 
         
+    # Bagian 3
+    # Menampilkan Heatmap
+    
+    col5, col6 = st.columns(2)
+    
+    if col5.button("Tampilkan Korelasi", key=5):
+        col6.empty()
+        st.divider()
+        st.write("Menampilkan Heatmap")
+        df_col = df.set_index('Salary')
+        st.write(df_col)
+        plt.matshow(df_col.corr())
+    
+    if col6.button("Bersihkan output", key=6):
+        col5.empty()
+        col6.empty()
