@@ -151,7 +151,10 @@ def show_explore_page():
         'Gender',
     ]
 
-    df2 = df.nlargest(5, 'Salary')  # Mengambil 5 baris dengan gaji tertinggi
+    st.divider()
+
+    # Bagian 5
+    df2 = df.nlargest(5, 'Salary')
     pilihan5 = st.selectbox("Pilih atribut untuk menampilkan opsi dengan 5 gaji tertinggi", opsi5)
 
     col9, col10 = st.columns(2)
