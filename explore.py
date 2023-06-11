@@ -76,3 +76,12 @@ def show_explore_page():
         
     # Bagian 3
     
+    st.divider()
+
+    button_piechart = st.button("Tampilkan pie chart untuk menampilkan persentase penggajian berdasarkan negara")
+    if button_piechart:
+        st.write("Menampilkan pie chart untuk menampilkan persentase penggajian berdasarkan negara")
+        data = df.groupby(['Country'])['Salary'].sum().sort_values(ascending=False)
+        plt.pie(data, labels=data.index, autopct='%1.1f%%')
+        plt.show()
+        st.pyplot()
