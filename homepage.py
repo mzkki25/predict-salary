@@ -23,11 +23,13 @@ def show_homepage():
     st.write(
         """
         Aplikasi penggajian karyawan ini dibuat oleh **KELOMPOK 3** untuk memenuhi tugas akhir mata kuliah **Perancangan Aplikasi Untuk Sains Data**.
-        Aplikasi penggajian ini bekerja dengan memanfaatkan model machine learning yang telah dilatih sebelumnya. dengan menggunakan 5 atribut yaitu:
+        Aplikasi penggajian ini bekerja dengan memanfaatkan model machine learning yang telah dilatih sebelumnya. dengan menggunakan 7 atribut yaitu:
         - Country
         - Employment
         - EdLevel
         - YearsCodePro
+        - Job Title
+        - Gender
         - Salary
         
         dengan atribut salary sebagai target.
