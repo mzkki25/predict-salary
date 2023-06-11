@@ -164,19 +164,24 @@ def show_explore_page():
         
         if pilihan5 == 'Country':
             data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
+            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            st.table(table_data)
         elif pilihan5 == 'EdLevel':
             data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
+            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            st.table(table_data)
         elif pilihan5 == 'Employment':
             data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
+            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            st.table(table_data)
         elif pilihan5 == 'Job Title':
             data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
+            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            st.table(table_data)
         elif pilihan5 == 'Gender':
             data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
+            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            st.table(table_data)
             
     if col10.button("Bersihkan output", key=10):
         col9.empty()
