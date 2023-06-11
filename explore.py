@@ -112,7 +112,6 @@ def show_explore_page():
     df_sorted = df.sort_values('Salary', ascending=False)
 
     # Mengatur skala warna
-    color_scale = pdk.LinearScale(domain=[df_sorted['Salary'].min(), df_sorted['Salary'].max()])
 
     # Mengubah nilai warna menjadi format RGBA
     rgba_color = df_sorted['Salary'].apply(lambda x: [200, 30, 0, int((x/df_sorted['Salary'].max()) * 255)])
