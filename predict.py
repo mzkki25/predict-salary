@@ -106,16 +106,18 @@ def show_predict_page():
         
         st.divider()
         st.subheader('Predicted Salary using various models')
+        linear_predict = round(linear.predict(params)[0], 2)
         decission_predict = round(decission.predict(params)[0], 2)
         random_predict = round(random.predict(params)[0], 2)
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
-        st.table(pd.DataFrame([decission_predict, random_predict, neural_predict], 
+        st.table(pd.DataFrame([linear_predict, decission_predict, random_predict, neural_predict], 
                                 columns=['Prediksi Penggajian'],
-                                index=['Decission Tree', 'Random Forest', 'Neural Network']))
-        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([decission_predict, random_predict, neural_predict]), 2)} per-tahun")
+                                index=['Linear Regression', 'Decission Tree', 'Random Forest', 'Neural Network']))
+        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, random_predict, neural_predict]), 2)} per-tahun")
         
 data = load_model()
+linear = data['LinearRegression']
 decission = data['DecissionTree']
 random = data['RandomForest']
 neural = data['pytorch_model']
