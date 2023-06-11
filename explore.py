@@ -83,74 +83,63 @@ def show_explore_page():
         col4.empty()
 
         
-    # # Bagian 3
+    # Bagian 3
+    opsi3 = [
+        'Associate',
+        'Bachelor',
+        'Doctoral',
+        'Master',
+        'Other degree',
+        'Primary school',
+        'Professional',
+        'Secondary school'
+    ]
     
-    # # Ambil data country dengan salary untuk di eksprot ke pydeck
+    pilihan3 = st.selectbox("Pilih tingkat edukasi untuk menghitung opsi yang dipilih berdasarkan salary", opsi3)
+
+    col5, col6 = st.columns(2)
+
+    if col5.button("Tampilkan data", key=3):
+        col6.empty()
+        st.divider()
+        st.write(f"""Menampilkan  {pilihan3} dengan 5 Salary tertinggi""")
+        data = df[df['EdLevel'] == pilihan3].sort_values(by='Salary', ascending=False).head(5)
+        table_data = pd.DataFrame({'Salary': data['Salary']})
+        st.table(table_data)
+
+    if col6.button("Bersihkan output", key=4):
+        col5.empty()
+        col6.empty()
+        
+    # Bagian 4
+    opsi4 = [
+        'Junior Business Analyst',
+        'Junior Business Development Associate',
+        'Junior Financial Analyst',
+        'Junior Marketing Coordinator',
+        'Junior Marketing Manager',
+        'Junior Marketing Specialist',
+        'Junior Operations Analyst',
+        'Junior Sales Representative',
+        'Other',
+        'Senior Business Analyst',
+        'Senior Financial Analyst',
+        'Senior Operations Manager',
+        'Senior Product Manager'
+    ]
     
-    # # chart_data = pd.DataFrame(
-    # #     df[['Country', 'Salary']],
-    # #     columns=['Country', 'Salary']
-    # # )
-
-    # # st.pydeck_chart(pdk.Deck(
-    # #     map_style=None,
-    # #     initial_view_state=pdk.ViewState(
-    # #         latitude=0,
-    # #         longitude=0,
-    # #         zoom=11,
-    # #         pitch=50,
-    # #     ),
-    # #     layers=[
-    # #         pdk.Layer(
-    # #             'ScatterplotLayer',
-    # #             data=chart_data,
-    # #             get_position='[Salary, Country]',
-    # #             get_color='[200, 30, 0, 160]',
-    # #             get_radius=200,
-    # #         ),
-    # #     ],
-    # # ))
+    pilihan4 = st.selectbox("Pilih pekerjaan untuk menghitung opsi yang dipilih berdasarkan salary", opsi4)
     
-    # country = pd.DataFrame({
-    # 'lat': [37.76, 37.77, 37.78, 37.79, 37.80],
-    # 'lon': [-122.4, -122.5, -122.6, -122.7, -122.8]
-    # })
-
-    # # Contoh DataFrame Salary
-    # salary = pd.DataFrame({
-    #     'lat': np.random.randn(1000) / 50 + 37.76,
-    #     'lon': np.random.randn(1000) / 50 - 122.4
-    # })
-
-    # # Menggabungkan DataFrame Country dan Salary
-    # chart_data = pd.concat([country, salary])
-
-    # # Menampilkan PyDeck Chart menggunakan Streamlit
-    # st.pydeck_chart(pdk.Deck(
-    #     map_style=None,
-    #     initial_view_state=pdk.ViewState(
-    #         latitude=37.76,
-    #         longitude=-122.4,
-    #         zoom=11,
-    #         pitch=50,
-    #     ),
-    #     layers=[
-    #         pdk.Layer(
-    #             'HexagonLayer',
-    #             data=chart_data,
-    #             get_position='[lon, lat]',
-    #             radius=200,
-    #             elevation_scale=4,
-    #             elevation_range=[0, 1000],
-    #             pickable=True,
-    #             extruded=True,
-    #         ),
-    #         pdk.Layer(
-    #             'ScatterplotLayer',
-    #             data=chart_data,
-    #             get_position='[lon, lat]',
-    #             get_color='[200, 30, 0, 160]',
-    #             get_radius=200,
-    #         ),
-    #     ],
-    # ))
+    col7, col8 = st.columns(2)
+    
+    if col7.button("Tampilkan data", key=7):
+        col8.empty()
+        st.divider()
+        st.write(f"""Menampilkan  {pilihan4} dengan 5 Salary tertinggi""")
+        data = df[df['Job Title'] == pilihan4].sort_values(by='Salary', ascending=False).head(5)
+        table_data = pd.DataFrame({'Salary': data['Salary']})
+        st.table(table_data)
+    
+    if col8.button("Bersihkan output", key=8):
+        col7.empty()
+        col8.empty()
