@@ -31,7 +31,7 @@ def show_explore_page():
         'Gender',
     ]
     
-    pilihan1 = st.selectbox("## Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
+    pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
 
     col1, col2 = st.columns(2)
 
