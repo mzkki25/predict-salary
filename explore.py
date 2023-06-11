@@ -143,7 +143,6 @@ def show_explore_page():
         col7.empty()
         col8.empty()
         
-    # Bagian 5
     opsi5 = [
         'Country',
         'EdLevel',
@@ -151,39 +150,35 @@ def show_explore_page():
         'Job Title',
         'Gender',
     ]
-    
-    df2 = df.sort_values(by='Salary', ascending=False).head(5)
-    pilihan5 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan 5 salary tertinggi", opsi5)
-    
+
+    df2 = df.nlargest(5, 'Salary')  # Mengambil 5 baris dengan gaji tertinggi
+    pilihan5 = st.selectbox("Pilih atribut untuk menampilkan opsi dengan 5 gaji tertinggi", opsi5)
+
     col9, col10 = st.columns(2)
 
     if col9.button("Tampilkan data", key=9):
         col10.empty()
         st.divider()
-        st.write(f"""Menampilkan 5 Salary tertinggi berdasarkan {pilihan5}""")
-        
+        st.write(f"Menampilkan 5 opsi dengan gaji tertinggi berdasarkan {pilihan5}")
+
         if pilihan5 == 'Country':
-            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            table_data = df2[['Country', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'EdLevel':
-            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            table_data = df2[['EdLevel', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'Employment':
-            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            table_data = df2[['Employment', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'Job Title':
-            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            table_data = df2[['JobTitle', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'Gender':
-            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            table_data = pd.DataFrame({'Salary': data, 'Country': data.index})
+            table_data = df2[['Gender', 'Salary']].reset_index(drop=True)
             st.table(table_data)
-            
+
     if col10.button("Bersihkan output", key=10):
         col9.empty()
         col10.empty()
-            
+
+                
