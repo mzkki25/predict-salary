@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pydeck as pdk
 
 @st.cache
 def load_data():
@@ -143,39 +142,4 @@ def show_explore_page():
     if col8.button("Bersihkan output", key=8):
         col7.empty()
         col8.empty()
-        
-    # Bagian 5
-    opsi5 = [
-        'Country',
-        'EdLevel',
-        'Employment',
-        'Job Title',
-        'Gender',
-    ]
-    
-    pilihan5 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan 5 salary tertinggi", opsi5)
-    
-    col9, col10 = st.columns(2)
-
-    if col9.button("Tampilkan data", key=9):
-        col10.empty()
-        st.divider()
-        st.write(f"""Menampilkan 5 Salary tertinggi berdasarkan {pilihan5}""")
-        df = df.sort_values(by='Salary', ascending=False).head(5)
-        
-        if pilihan5 == 'Country':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
-        elif pilihan5 == 'EdLevel':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
-        elif pilihan5 == 'Employment':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
-        elif pilihan5 == 'Job Title':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
-        elif pilihan5 == 'Gender':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
-            st.bar_chart(data)
             
