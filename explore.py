@@ -15,9 +15,10 @@ def show_explore_page():
     
     opsi1 = [
         'Country',
-        'YearsCodePro',
         'EdLevel',
         'Employment',
+        'Job Title',
+        'Gender',
     ]
     
     pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)

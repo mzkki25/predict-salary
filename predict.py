@@ -116,7 +116,7 @@ def show_predict_page():
     gender = st.selectbox("Jenis kelamin", GENDER)
     experience = st.slider('Pengalaman (dalam tahun)', 0, 25, 1)
     
-    ok = st.button('Hitung gaji Anda')
+    ok = st.button('Hitung prediksi gaji Anda')
     if ok:
         params = np.array([[country, education, employment, job, gender, experience]])
         st.table(pd.DataFrame(params, columns=['Negara', 'Pendidikan', 'Status pekerjaan', 'Pekerjaan', 'Jenis Kelamin', 'Pengalaman (dalam tahun)']))
@@ -139,7 +139,7 @@ def show_predict_page():
         st.table(pd.DataFrame([linear_predict, decission_predict, neural_predict], 
                                 columns=['Prediksi Penggajian'],
                                 index=['Linear Regression', 'Decission Tree', 'Neural Network']))
-        st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, neural_predict]), 2)} per-tahun")
+        st.write(f"Prediksi gaji Anda adalah sekitar: ${round(np.mean([linear_predict, decission_predict, neural_predict]), 2)} per-tahun")
         
 data = load_model()
 linear = data['LinearRegression']
