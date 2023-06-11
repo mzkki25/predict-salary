@@ -91,8 +91,8 @@ def show_explore_page():
         initial_view_state=pdk.ViewState(
             latitude=0,
             longitude=0,
-            zoom=0,
-            pitch=0,
+            zoom=11,
+            pitch=50,
         ),
         layers=[
             # pdk.Layer(
@@ -108,7 +108,7 @@ def show_explore_page():
             pdk.Layer(
                 'ScatterplotLayer',
                 data=chart_data,
-                get_position='[0, 0]',
+                get_position='[Salary, Country]',
                 get_color='[200, 30, 0, 160]',
                 get_radius=200,
             ),
