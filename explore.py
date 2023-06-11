@@ -106,7 +106,7 @@ def show_explore_page():
     country = pd.DataFrame({
     'lat': [37.76, 37.77, 37.78, 37.79, 37.80],
     'lon': [-122.4, -122.5, -122.6, -122.7, -122.8]
-})
+    })
 
     # Contoh DataFrame Salary
     salary = pd.DataFrame({
