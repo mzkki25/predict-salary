@@ -160,22 +160,22 @@ def show_explore_page():
         col10.empty()
         st.divider()
         st.write(f"""Menampilkan 5 Salary tertinggi berdasarkan {pilihan5}""")
-        df = df.sort_values(by='Salary', ascending=False).head(5)
+        df2 = df2.sort_values(by='Salary', ascending=False).head(5)
         
         if pilihan5 == 'Country':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
+            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
             st.bar_chart(data)
         elif pilihan5 == 'EdLevel':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
+            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
             st.bar_chart(data)
         elif pilihan5 == 'Employment':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
+            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
             st.bar_chart(data)
         elif pilihan5 == 'Job Title':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
+            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
             st.bar_chart(data)
         elif pilihan5 == 'Gender':
-            data = df.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
+            data = df2.groupby([pilihan5])['Salary'].sum().sort_values(ascending=True)
             st.bar_chart(data)
             
     if col10.button("Bersihkan output", key=10):
