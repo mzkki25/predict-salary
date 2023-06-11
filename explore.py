@@ -163,7 +163,7 @@ def show_explore_page():
     if col9.button("Tampilkan data", key=9):
         col10.empty()
         st.divider()
-        st.write(f"Menampilkan 5 opsi dengan gaji tertinggi berdasarkan {pilihan5}")
+        st.write(f"Menampilkan 5 {pilihan5} dengan gaji tertinggi")
 
         if pilihan5 == 'Country':
             table_data = df2[['Country', 'Salary']].reset_index(drop=True)
