@@ -18,7 +18,7 @@ def show_homepage():
     
     st.divider()
     
-    st.text_area("Deskripsi singkat", "")
+    # st.text_area("Deskripsi singkat", "")
     
     st.write(
         """
