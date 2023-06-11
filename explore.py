@@ -152,7 +152,7 @@ def show_explore_page():
         'Gender',
     ]
     
-    df2 = df2.sort_values(by='Salary', ascending=False).head(5)
+    df2 = df.sort_values(by='Salary', ascending=False).head(5)
     pilihan5 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan 5 salary tertinggi", opsi5)
     
     col9, col10 = st.columns(2)
