@@ -12,6 +12,13 @@ def load_data():
 df = load_data()
 
 def show_explore_page():
+    
+    # Menampilkan data
+    st.table(df)
+    
+    st.divider()
+    st.divider()
+    
     st.title("Eksplorasi penggajian")
     
     # Bagian 1
