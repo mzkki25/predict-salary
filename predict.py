@@ -111,7 +111,7 @@ def show_predict_page():
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
         
         st.table(pd.DataFrame([decission_predict, random_predict, neural_predict], 
-                                columns=['Predicted Salary'],
+                                columns=['Prediksi Penggajian'],
                                 index=['Decission Tree', 'Random Forest', 'Neural Network']))
         st.write(f"Gaji Anda adalah sekitar: ${round(np.mean([decission_predict, random_predict, neural_predict]), 2)} per-tahun")
         
