@@ -99,7 +99,7 @@ def show_explore_page():
 
     col5, col6 = st.columns(2)
 
-    if col5.button("Tampilkan data", key=3):
+    if col5.button("Tampilkan data", key=5):
         col6.empty()
         st.divider()
         st.write(f"""Menampilkan  {pilihan3} dengan 5 Salary tertinggi""")
@@ -107,7 +107,7 @@ def show_explore_page():
         table_data = pd.DataFrame({'Salary': data['Salary']})
         st.table(table_data)
 
-    if col6.button("Bersihkan output", key=4):
+    if col6.button("Bersihkan output", key=6):
         col5.empty()
         col6.empty()
         
