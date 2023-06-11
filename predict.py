@@ -105,8 +105,8 @@ def show_predict_page():
         params = params.astype(np.float32)
         
         st.divider()
-        st.subheader('Predicted Salary using various models')
-        linear_predict = round(linear.predict(params)[0], 2)
+        st.subheader('Prediksi penggajian berdasarkan berbagai model')
+        linear_predict = -1 * round(linear.predict(params)[0], 2)
         decission_predict = round(decission.predict(params)[0], 2)
         random_predict = round(random.predict(params)[0], 2)
         neural_predict = round(neural(torch.from_numpy(params)).item(), 2)
