@@ -156,7 +156,7 @@ def show_explore_page():
 
     # Bagian 5
     df2 = df.nlargest(5, 'Salary')
-    pilihan5 = st.selectbox("Pilih atribut untuk menampilkan 5 gaji tertinggi", opsi5)
+    pilihan5 = st.selectbox("Pilih atribut untuk menampilkan 5 salary tertinggi", opsi5)
 
     col9, col10 = st.columns(2)
 
