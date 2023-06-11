@@ -14,9 +14,9 @@ def show_explore_page():
     
     st.title("Eksplorasi penggajian")
     
-    st.write("""###Pratinjau Data""")
+    st.write("""### Pratinjau Data""")
     # Menampilkan data
-    st.table(df.head(00))
+    st.table(df.head(10))
     
     st.divider()
     st.divider()
