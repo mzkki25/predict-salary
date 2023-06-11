@@ -39,8 +39,8 @@ def show_explore_page():
     st.divider()
     
     opsi2 = [
-        'Australia', 
-        'Brazil', 
+        'Australia',
+        'Brazil',
         'Canada',
         'France',
         'Germany',
@@ -50,7 +50,6 @@ def show_explore_page():
         'Other',
         'Poland',
         'Spain',
-        'Sweden',
         'United Kingdom of Great Britain and Northern Ireland',
         'United States of America'
     ]
