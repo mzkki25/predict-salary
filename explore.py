@@ -31,14 +31,14 @@ def show_explore_page():
         'Gender',
     ]
     
-    pilihan1 = st.selectbox("Pilih atribut untuk menghitung opsi yang dipilih berdasarkan salary", opsi1)
+    pilihan1 = st.selectbox("Pilih atribut untuk perhitungan berdasarkan salary", opsi1)
 
     col1, col2 = st.columns(2)
 
     if col1.button("Tampilkan data", key=1):
         col2.empty()
         st.divider()
-        st.write(f"""Total penggajian berdasarkan {pilihan1} dengan Salary""")
+        st.write(f"""Total Salary berdasarkan {pilihan1}""")
         data = df.groupby([pilihan1])['Salary'].sum().sort_values(ascending=True)
         st.bar_chart(data)
 
@@ -66,7 +66,7 @@ def show_explore_page():
         'United States of America'
     ]
     
-    pilihan2 = st.selectbox("Pilih negara untuk menghitung opsi yang dipilih berdasarkan salary", opsi2)
+    pilihan2 = st.selectbox("Pilih negara untuk perhitungan berdasarkan Salary", opsi2)
 
     col3, col4 = st.columns(2)
 
@@ -95,7 +95,7 @@ def show_explore_page():
         'Secondary school'
     ]
     
-    pilihan3 = st.selectbox("Pilih tingkat edukasi untuk menghitung opsi yang dipilih berdasarkan salary", opsi3)
+    pilihan3 = st.selectbox("Pilih Tingkat Edukasi untuk perhitungan berdasarkan Salary", opsi3)
 
     col5, col6 = st.columns(2)
 
@@ -128,7 +128,7 @@ def show_explore_page():
         'Senior Product Manager'
     ]
     
-    pilihan4 = st.selectbox("Pilih pekerjaan untuk menghitung opsi yang dipilih berdasarkan salary", opsi4)
+    pilihan4 = st.selectbox("Pilih Pekerjaan untuk perhitungan berdasarkan Salary", opsi4)
     
     col7, col8 = st.columns(2)
     
@@ -156,7 +156,7 @@ def show_explore_page():
 
     # Bagian 5
     df2 = df.nlargest(5, 'Salary')
-    pilihan5 = st.selectbox("Pilih atribut untuk menampilkan opsi dengan 5 gaji tertinggi", opsi5)
+    pilihan5 = st.selectbox("Pilih atribut untuk menampilkan 5 gaji tertinggi", opsi5)
 
     col9, col10 = st.columns(2)
 
