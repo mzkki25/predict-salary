@@ -175,7 +175,7 @@ def show_explore_page():
             table_data = df2[['Employment', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'Job Title':
-            table_data = df2[['JobTitle', 'Salary']].reset_index(drop=True)
+            table_data = df2[['Job Title', 'Salary']].reset_index(drop=True)
             st.table(table_data)
         elif pilihan5 == 'Gender':
             table_data = df2[['Gender', 'Salary']].reset_index(drop=True)
