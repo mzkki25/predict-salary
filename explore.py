@@ -14,7 +14,7 @@ df = load_data()
 def show_explore_page():
     
     # Menampilkan data
-    st.table(df)
+    st.table(df.head(20))
     
     st.divider()
     st.divider()
