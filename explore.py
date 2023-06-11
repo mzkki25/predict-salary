@@ -85,3 +85,4 @@ def show_explore_page():
         plt.pie(data, labels=data.index, autopct='%1.1f%%')
         plt.show()
         st.pyplot()
+        st.set_option('deprecation.showPyplotGlobalUse', False)
