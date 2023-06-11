@@ -103,42 +103,35 @@ def show_explore_page():
     #     ],
     # ))
     
-    dataq = {'Country': ['USA', 'China', 'Japan', 'Germany', 'India'],
-        'Salary': [5000, 4000, 3000, 2000, 1000]}
-
-    df = pd.DataFrame(dataq)
-
-    # Mengurutkan DataFrame berdasarkan kolom 'Salary' secara menurun
-    df_sorted = df.sort_values('Salary', ascending=False)
-
-    # Mengatur skala warna
-
-    # Mengubah nilai warna menjadi format RGBA
-    rgba_color = df_sorted['Salary'].apply(lambda x: [200, 30, 0, int((x/df_sorted['Salary'].max()) * 255)])
-
-    # Membuat chart data
     chart_data = pd.DataFrame(
-        {'Country': df_sorted['Country'], 'Salary': df_sorted['Salary'], 'rgba_color': rgba_color}
-    )
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon'])
 
-    # Menampilkan ScatterplotLayer menggunakan PyDeck
     st.pydeck_chart(pdk.Deck(
         map_style=None,
         initial_view_state=pdk.ViewState(
-            latitude=0,
-            longitude=0,
+            latitude=37.76,
+            longitude=-122.4,
             zoom=11,
             pitch=50,
         ),
         layers=[
             pdk.Layer(
+            'HexagonLayer',
+            data=chart_data,
+            get_position='[lon, lat]',
+            radius=200,
+            elevation_scale=4,
+            elevation_range=[0, 1000],
+            pickable=True,
+            extruded=True,
+            ),
+            pdk.Layer(
                 'ScatterplotLayer',
                 data=chart_data,
-                get_position='[Salary, 0]',
-                get_color='rgba_color',
+                get_position='[lon, lat]',
+                get_color='[200, 30, 0, 160]',
                 get_radius=200,
-                opacity=0.8,
-                pickable=True,
             ),
         ],
     ))
