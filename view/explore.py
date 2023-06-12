@@ -16,7 +16,7 @@ def show_explore_page():
     
     st.write("""### Pratinjau Data""")
     # Menampilkan data
-    st.table(df.head(10))
+    st.view(df)
     
     st.divider()
     st.divider()
