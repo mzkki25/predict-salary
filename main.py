@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-from view.predict import show_predict_page
-from view.explore import show_explore_page
-from view.homepage import show_homepage
+
+from predict import show_predict_page
+from explore import show_explore_page
+from homepage import show_homepage
 
 page = st.sidebar.selectbox("Pilih laman", ["Homepage", "Salary Prediction", "Data Exploration"])
 
