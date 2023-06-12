@@ -101,7 +101,7 @@ def load_model(pytorch_model=SalaryPredict):
     loader = torch.load('model.pt')
     model = pytorch_model(data['n_input'])
     model.load_state_dict(loader['Model'])
-    data['pytorch_model'] = model
+    data['MultiLayerPerceptron'] = model
     return data
 
 def show_predict_page():
@@ -145,7 +145,7 @@ data = load_model()
 linear = data['LinearRegression']
 decission = data['DecissionTree']
 # random = data['RandomForest']
-neural = data['pytorch_model']
+neural = data['MultiLayerPerceptron']
 country_encoder = data['country_encoder']
 education_encoder = data['ed_encoder']
 employment_encoder = data['employment_encoder']
