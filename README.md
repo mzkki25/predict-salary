@@ -1,5 +1,4 @@
-# predict-salary
-Tugas Besar PASD
+## Tugas Besar PASD
 
 **Team Member**
 1. Akmal Muzakki Bakir (1305210087)
