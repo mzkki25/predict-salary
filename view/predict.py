@@ -73,7 +73,7 @@ class SalaryPredict(nn.Module):
         self.l5 = nn.Linear(16, 8)
         self.relu5 = nn.LeakyReLU()
         self.l6 = nn.Linear(8, 1)
-        self.dropout = nn.Dropout(p=0.1)
+        self.dropout = nn.Dropout(p=0.01)
         
     def forward(self, x):
         x = self.l1(x)
