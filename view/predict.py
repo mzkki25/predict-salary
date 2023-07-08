@@ -95,9 +95,13 @@ class SalaryPredict(nn.Module):
         return x
 
 def load_model(pytorch_model=SalaryPredict):
+<<<<<<< HEAD
     with open('../dump_data/model.pkl', 'rb') as f:
         data = pickle.load(f)
         
+=======
+    data = pickle.load(open('dump_data/model.pkl', 'rb'))
+>>>>>>> ac9949d374ee68ee35294246638136cd94b9fea5
     loader = torch.load('../dump_data/model.pt')
     model = pytorch_model(data['n_input'])
     model.load_state_dict(loader['Model'])
