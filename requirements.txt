@@ -1,4 +1,1 @@
-scikit-learn==1.2.2
-matplotlib
-torch
-pickleshare==0.7.5
+python==1.2
